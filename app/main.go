@@ -1,7 +1,7 @@
 package main
 
 import (
-	"douyin/server"
+	"github.com/longsuizhi/douyin/server"
 	"github.com/gin-gonic/gin"
 )
 
