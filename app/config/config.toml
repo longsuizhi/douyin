@@ -1,0 +1,32 @@
+# 数据库配置
+[mysql]
+host = "127.0.0.1"
+port = 3306
+database = "douyin"
+username = "root"
+password = "12345678"
+charset = "utf8mb4"
+parse_time = true
+loc = "Local"
+read_timeout = "2s"
+max_idle = 100
+max_active = 100
+
+# nosql配置
+[redis]
+server_name = "douyin_redis"
+host = "127.0.0.1"
+port = 6379
+password = "12345678"
+max_active = 500
+max_idle = 500
+idle_timeout = 1000
+connect_timeout = 100
+read_timeout = 100
+write_timeout = 100
+database = 0
+
+#记录当前服务器的ip和启动端口号，当前服务器的ip用于生成对应的视频链接地址
+[server]
+ip = "192.168.8.33"
+port = 10000

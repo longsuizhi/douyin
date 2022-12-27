@@ -1,3 +1,29 @@
 package service
 
-func UserLogin()
+import (
+	"douyin/dao"
+	"douyin/model"
+	"github.com/gin-gonic/gin"
+)
+
+// MaxVideoNum 每次最多返回的视频流数量
+const (
+	MaxVideoNum = 30
+)
+
+func FeedVideo(c *gin.Context, req model.FeedVideoReq) (*dao.FeedVideo, error) {
+	res := &dao.FeedVideo{}
+	/*var latestTime time.Time
+	intTime, err := strconv.ParseInt(req.LatestTime, 10, 64)
+	if err != nil {
+		latestTime = time.Unix(0, intTime*1e6) //注意：前端传来的时间戳是以ms为单位的
+	}
+	//无登录状态
+	if req.Token == "" {
+
+	} else {
+		//登录状态
+
+	}*/
+	return res, nil
+}
