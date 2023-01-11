@@ -6,11 +6,6 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// MaxVideoNum 每次最多返回的视频流数量
-const (
-	MaxVideoNum = 30
-)
-
 func FeedVideo(c *gin.Context, req model.FeedVideoReq) (*dao.FeedVideo, error) {
 	res := &dao.FeedVideo{}
 	/*var latestTime time.Time

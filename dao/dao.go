@@ -3,10 +3,10 @@ package dao
 import (
 	"douyin/conf"
 	"fmt"
-	"time"
-
 	"github.com/go-redis/redis"
 	"github.com/jinzhu/gorm"
+	_ "github.com/jinzhu/gorm/dialects/mysql"
+	"time"
 )
 
 var (
@@ -42,11 +42,12 @@ func InitDB() {
 }
 
 func InitRedisClient() (err error) {
-	SvRedis = redis.NewClient(&redis.Options{
-		Addr:     "127.0.0.1:6379",
-		Password: "123456",
-		DB:       10,
-	})
+	SvRedis = redis.NewClient(
+		&redis.Options{
+			Addr:     fmt.Sprintf("%s:%d", conf.Info.RDB.IP, conf.Info.RDB.Port),
+			Password: "123456",
+			DB:       conf.Info.RDB.Database,
+		})
 	_, err = SvRedis.Ping().Result()
 	if err != nil {
 		return err

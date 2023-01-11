@@ -4,9 +4,9 @@ import "errors"
 
 type ResCode int64
 
-var codeMsgMap = map[ResCode]string{}
+var codeMsgMap = make(map[ResCode]string)
 
-var errorMsgMap = map[error]ResCode{}
+var errorMsgMap = make(map[error]ResCode)
 
 func (c ResCode) Msg() string {
 	msg, ok := codeMsgMap[c]
@@ -36,4 +36,8 @@ var (
 	InvalidToken     = CodeWithError(1006, "token错误")
 	OverdueToken     = CodeWithError(1007, "token过期")
 	UserNotExist     = CodeWithError(1008, "该用户不存在")
+	UserNameTooLong  = CodeWithError(1009, "用户名过长")
+	UserNameTooShort = CodeWithError(1010, "用户名过短")
+	PasswordTooLong  = CodeWithError(1011, "密码过长")
+	PasswordTooShort = CodeWithError(1012, "密码过短")
 )

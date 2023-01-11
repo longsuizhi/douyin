@@ -1,10 +1,10 @@
 # 数据库配置
-[mysql]
+[database]
 host = "127.0.0.1"
 port = 3306
 database = "douyin"
 username = "root"
-password = "12345678"
+password = "123456"
 charset = "utf8mb4"
 parse_time = true
 loc = "Local"
@@ -17,7 +17,7 @@ max_active = 100
 server_name = "douyin_redis"
 host = "127.0.0.1"
 port = 6379
-password = "12345678"
+password = "123456"
 max_active = 500
 max_idle = 500
 idle_timeout = 1000

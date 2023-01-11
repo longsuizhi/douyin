@@ -5,12 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6195ed29-35e6-4a96-8073-7a03d5009c78" name="变更" comment="">
-      <change beforePath="$PROJECT_DIR$/app/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/code/code.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/code/code.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/config.toml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/config.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/config.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conf/conf.go" beforeDir="false" afterPath="$PROJECT_DIR$/conf/conf.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/user_handler.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dao/dao.go" beforeDir="false" afterPath="$PROJECT_DIR$/dao/dao.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dao/user_dao.go" beforeDir="false" afterPath="$PROJECT_DIR$/dao/user_dao.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/http/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/http/router.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/http/user_handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/http/user_handler.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/http/video_handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/http/video_handler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middlewares/jwt.go" beforeDir="false" afterPath="$PROJECT_DIR$/middlewares/jwt.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middlewares/password.go" beforeDir="false" afterPath="$PROJECT_DIR$/middlewares/password.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/router/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/router/router.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/user_svc.go" beforeDir="false" afterPath="$PROJECT_DIR$/service/user_svc.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/video_svc.go" beforeDir="false" afterPath="$PROJECT_DIR$/service/video_svc.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -78,5 +86,51 @@
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/controller/user_controller.go</url>
+          <line>12</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/controller/user_controller.go</url>
+          <line>17</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/service/user_svc.go</url>
+          <line>16</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/service/user_svc.go</url>
+          <line>22</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/service/user_svc.go</url>
+          <line>32</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/service/user_svc.go</url>
+          <line>38</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/service/user_svc.go</url>
+          <line>44</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/dao/user_dao.go</url>
+          <line>25</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

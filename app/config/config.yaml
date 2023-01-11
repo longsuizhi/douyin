@@ -14,13 +14,13 @@ mysql:
   host: "127.0.0.1"
   port: 3306
   user: "root"
-  password: "12345678"
+  password: "123456"
   dbname: "douyin"
   max_open_connections: 200
   max_idle_connections: 50
 redis:
   host: "127.0.0.1"
   port: 6379
-  password: "12345678"
+  password: "123456"
   db: 0
   pool_size: 100

@@ -3,8 +3,10 @@ package router
 import (
 	"douyin/controller"
 	"douyin/logger"
-	"github.com/gin-gonic/gin"
+	"douyin/middlewares"
 	"net/http"
+
+	"github.com/gin-gonic/gin"
 )
 
 func InitRouter(c *gin.Engine) {
@@ -26,7 +28,7 @@ func InitRouter(c *gin.Engine) {
 		// 视频流
 		//external.GET("/feed", controller.FeedVideoHandler)
 		// 用户注册
-		external.POST("/user/register", controller.userRegister)
+		external.POST("/user/register", middlewares.SHAMiddleWare(), controller.UserRegisterHandler)
 		// 用户登录
 		//external.POST("/user/login", userLogin)
 		// 获取用户信息
@@ -38,7 +40,7 @@ func InitRouter(c *gin.Engine) {
 
 	}
 
-	/*background := s.GROUP("/api/background")
+	/*background := s.GROUP("/api/v1/background")
 	{
 
 	}*/

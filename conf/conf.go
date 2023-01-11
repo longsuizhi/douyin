@@ -17,8 +17,8 @@ type Mysql struct {
 	ParseTime   bool `toml:"parse_time"`
 	Loc         string
 	ReadTimeout string `toml:"read_timeout"`
-	MaxIdel     int
-	MaxActive   int
+	MaxIdel     int    `toml:"max_idel"`
+	MaxActive   int    `toml:"max_active"`
 }
 
 type Redis struct {
@@ -61,9 +61,9 @@ func init() {
 
 // DBConnectString 填充得到数据库连接字符串
 func DBConnectString() string {
-	arg := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?charset=%s&parseTime=%v&loc=%s&readTimeout=%s&max_idle=%d&max_active=%d",
+	arg := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?charset=%s&parseTime=%v&loc=%s&readTimeout=%s",
 		Info.DB.Username, Info.DB.Password, Info.DB.Host, Info.DB.Port, Info.DB.Database,
-		Info.DB.Charset, Info.DB.ParseTime, Info.DB.Loc, Info.DB.ReadTimeout, Info.DB.MaxIdel, Info.DB.MaxActive)
+		Info.DB.Charset, Info.DB.ParseTime, Info.DB.Loc, Info.DB.ReadTimeout)
 	log.Println(arg)
 	return arg
 }
