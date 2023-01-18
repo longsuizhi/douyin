@@ -33,3 +33,7 @@ func GetUserData(userName string) (Users, error) {
 func CreateUser(newUser *Users) error {
 	return SvDB.Model(Users{}).Create(newUser).Error
 }
+
+func UpdateUser(newUser *Users) error {
+	return SvDB.Model(Users{}).Where("id = ?", newUser.ID).Updates(newUser).Error
+}

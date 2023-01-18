@@ -2,6 +2,10 @@
 
 抖音极速版
 
+# 项目构建
+
+打开 /app/config 文件夹下的 config.toml 文件
+
 # 项目文件目录说明
 
 ```shell

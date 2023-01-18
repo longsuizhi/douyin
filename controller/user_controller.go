@@ -4,12 +4,13 @@ import (
 	"douyin/api/code"
 	"douyin/model"
 	"douyin/service"
+
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
 )
 
 func UserRegisterHandler(c *gin.Context) {
-	req := model.UserRegisterReq{}
+	req := model.UserRegisterLoginReq{}
 	if err := c.ShouldBindJSON(&req); err != nil || req.UserName == "" || req.PassWord == "" {
 		zap.L().Error("UserRegisterHandler with invalid param", zap.Error(err))
 		code.Response(c, err, nil)
@@ -18,6 +19,20 @@ func UserRegisterHandler(c *gin.Context) {
 	data, err := service.UserRegister(req)
 	if err != nil {
 		zap.L().Error("service.UserRegister failed", zap.Error(err))
+	}
+	code.Response(c, err, data)
+}
+
+func UserLoginHandler(c *gin.Context) {
+	req := model.UserRegisterLoginReq{}
+	if err := c.ShouldBindJSON(&req); err != nil || req.UserName == "" || req.PassWord == "" {
+		zap.L().Error("UserRegisterHandler with invalid param", zap.Error(err))
+		code.Response(c, err, nil)
+		return
+	}
+	data, err := service.UserLogin(req)
+	if err != nil {
+		zap.L().Error("service.UserLoginHandler failed", zap.Error(err))
 	}
 	code.Response(c, err, data)
 }

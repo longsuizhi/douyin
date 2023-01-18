@@ -11,7 +11,7 @@ import (
 	"go.uber.org/zap"
 )
 
-func UserRegister(req model.UserRegisterReq) (dao.UsersRes, error) {
+func UserRegister(req model.UserRegisterLoginReq) (dao.UsersRes, error) {
 	res := dao.UsersRes{}
 	//校验用户名和密码长度
 	err := CheckLength(req)
@@ -43,12 +43,16 @@ func UserRegister(req model.UserRegisterReq) (dao.UsersRes, error) {
 	}
 	//使用创建得到的uid颁布token
 	token, err := middlewares.GenToken(newUser.ID, newUser.Password)
+	if err != nil {
+		zap.L().Error("GenToken failed", zap.Error(err))
+		return res, err
+	}
 	res.Token = token
 	res.UserID = newUser.ID
 	return res, nil
 }
 
-func CheckLength(req model.UserRegisterReq) error {
+func CheckLength(req model.UserRegisterLoginReq) error {
 	if len(req.UserName) > define.MaxUsernameLength {
 		return code.UserNameTooLong
 	}
@@ -62,4 +66,44 @@ func CheckLength(req model.UserRegisterReq) error {
 		return code.PasswordTooShort
 	}
 	return nil
+}
+
+func UserLogin(req model.UserRegisterLoginReq) (dao.UsersRes, error) {
+	res := dao.UsersRes{}
+	//校验用户名和密码长度
+	err := CheckLength(req)
+	if err != nil {
+		zap.L().Error("CheckLength failed", zap.Error(err))
+		return res, err
+	}
+	//查询是否已经存在该用户名
+	data, err := dao.GetUserData(req.UserName)
+	if err != nil {
+		zap.L().Error("GetUserData failed", zap.Error(err))
+		return res, err
+	}
+	//用户不存在
+	if data.ID <= 0 {
+		return res, code.UserNotExist
+	}
+	if middlewares.EncodeMD5(req.PassWord) != data.Password {
+		return res, code.InvalidPassword
+	}
+	//更新最后一次登录时间，登录次数加一
+	data.LastLogin = time.Now()
+	data.LoginNum++
+	updateErr := dao.UpdateUser(&data)
+	if updateErr != nil {
+		zap.L().Error("UpdateUser failed", zap.Error(updateErr))
+		return res, updateErr
+	}
+	//使用创建得到的uid颁布token
+	token, err := middlewares.GenToken(data.ID, data.Password)
+	if err != nil {
+		zap.L().Error("GenToken failed", zap.Error(err))
+		return res, err
+	}
+	res.Token = token
+	res.UserID = data.ID
+	return res, nil
 }

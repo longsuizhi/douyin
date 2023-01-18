@@ -6,20 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="6195ed29-35e6-4a96-8073-7a03d5009c78" name="变更" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/code/code.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/code/code.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/config.toml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/config.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/config.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conf/conf.go" beforeDir="false" afterPath="$PROJECT_DIR$/conf/conf.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/user_handler.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dao/dao.go" beforeDir="false" afterPath="$PROJECT_DIR$/dao/dao.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/user_controller.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/user_controller.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dao/user_dao.go" beforeDir="false" afterPath="$PROJECT_DIR$/dao/user_dao.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/define/const.go" beforeDir="false" afterPath="$PROJECT_DIR$/define/const.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/middlewares/jwt.go" beforeDir="false" afterPath="$PROJECT_DIR$/middlewares/jwt.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middlewares/password.go" beforeDir="false" afterPath="$PROJECT_DIR$/middlewares/password.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/user_mod.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/user_mod.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/router/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/router/router.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/user_svc.go" beforeDir="false" afterPath="$PROJECT_DIR$/service/user_svc.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/video_svc.go" beforeDir="false" afterPath="$PROJECT_DIR$/service/video_svc.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web.log" beforeDir="false" afterPath="$PROJECT_DIR$/web.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
