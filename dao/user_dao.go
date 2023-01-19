@@ -1,9 +1,12 @@
 package dao
 
 import (
+	"douyin/define"
 	"errors"
-	"github.com/jinzhu/gorm"
+	"fmt"
 	"time"
+
+	"github.com/jinzhu/gorm"
 )
 
 type Users struct {
@@ -36,4 +39,13 @@ func CreateUser(newUser *Users) error {
 
 func UpdateUser(newUser *Users) error {
 	return SvDB.Model(Users{}).Where("id = ?", newUser.ID).Updates(newUser).Error
+}
+
+func userFollowKey(userID uint) string {
+	return fmt.Sprintf("%s%d", define.UserFollowNum, userID)
+}
+
+func GetUserFollowInfo(userID uint) (string, error) {
+	key := userFollowKey(userID)
+
 }

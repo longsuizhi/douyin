@@ -4,7 +4,6 @@ import (
 	"douyin/api/code"
 	"douyin/model"
 	"douyin/service"
-
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
 )
@@ -31,6 +30,20 @@ func UserLoginHandler(c *gin.Context) {
 		return
 	}
 	data, err := service.UserLogin(req)
+	if err != nil {
+		zap.L().Error("service.UserLoginHandler failed", zap.Error(err))
+	}
+	code.Response(c, err, data)
+}
+
+func GetUserInfoHandler(c *gin.Context) {
+	userID, ok := c.Get("user_id")
+	if !ok {
+		zap.L().Error("GetUserInfo with invalid param", zap.Error(code.InvalidParam))
+		code.Response(c, nil, nil)
+		return
+	}
+	data, err := service.GetUserInfo(userID)
 	if err != nil {
 		zap.L().Error("service.UserLoginHandler failed", zap.Error(err))
 	}

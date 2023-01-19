@@ -107,3 +107,5 @@ func UserLogin(req model.UserRegisterLoginReq) (dao.UsersRes, error) {
 	res.UserID = data.ID
 	return res, nil
 }
+
+func GetUserInfo(userID interface{})

@@ -32,7 +32,7 @@ func InitRouter(c *gin.Engine) {
 		// 用户登录
 		external.POST("/user/login", middlewares.SHAMiddleWare(), controller.UserLoginHandler)
 		// 获取用户信息
-		//external.GET("/user", controller.GetUserInfo)
+		external.GET("/user", middlewares.JWTMiddleWare(), controller.GetUserInfoHandler)
 		// 视频投稿
 		//external.POST("/publish/action", controller.VideoUpload)
 		// 获取用户发布列表
