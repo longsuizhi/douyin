@@ -6,6 +6,7 @@ import (
 	"douyin/define"
 	"douyin/middlewares"
 	"douyin/model"
+	"strconv"
 	"time"
 
 	"go.uber.org/zap"
@@ -108,4 +109,33 @@ func UserLogin(req model.UserRegisterLoginReq) (dao.UsersRes, error) {
 	return res, nil
 }
 
-func GetUserInfo(userID interface{})
+func GetUserInfo(userID string, myID uint) (dao.UserInfo, error) {
+	res := dao.UserInfo{}
+	uid, err := strconv.Atoi(userID)
+	if err != nil {
+		zap.L().Error("strconv.Atoi failed", zap.Error(err))
+		return res, err
+	}
+	//获取用户昵称
+	userData, err := dao.GetUserInfo(uint(uid))
+	if err != nil {
+		zap.L().Error("GetUserInfo failed", zap.Error(err))
+		return res, err
+	}
+	//用户不存在
+	if userData.ID <= 0 {
+		return res, code.UserNotExist
+	}
+	//获取关注数量，粉丝数量，是否关注
+	follow, follower, isFollow, err := dao.GetUserFollowInfo(uint(uid), myID)
+	if err != nil {
+		zap.L().Error("GetUserFollowInfo failed", zap.Error(err))
+		return res, err
+	}
+	res.ID = userData.ID
+	res.Name = userData.UserName
+	res.FollowCount = follow
+	res.FollowerCount = follower
+	res.IsFollow = isFollow
+	return res, nil
+}

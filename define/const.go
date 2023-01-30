@@ -15,8 +15,8 @@ const (
 
 // 用户信息
 const (
-	UserFollowNum   = "user_follow_num:"   //用户关注数量
-	UserFollowerNum = "user_follower_num:" //用户粉丝数量
+	//UserFollowNum   = "user_follow_num"   //用户关注数量
+	//UserFollowerNum = "user_follower_num" //用户粉丝数量
 	UserFollow      = "user_follow:"       //用户关注列表
 	UserFollower    = "user_follower:"     //用户粉丝列表
 )

@@ -3,7 +3,7 @@ package dao
 import (
 	"douyin/conf"
 	"fmt"
-	"github.com/go-redis/redis"
+	"github.com/garyburd/redigo/redis"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 	"time"
@@ -11,7 +11,7 @@ import (
 
 var (
 	SvDB    *gorm.DB
-	SvRedis *redis.Client
+	SvRedis redis.Conn
 )
 
 // Dao represents data access object
@@ -41,14 +41,12 @@ func InitDB() {
 	//SvDB.LogMode(true)
 }
 
-func InitRedisClient() (err error) {
-	SvRedis = redis.NewClient(
-		&redis.Options{
-			Addr:     fmt.Sprintf("%s:%d", conf.Info.RDB.IP, conf.Info.RDB.Port),
-			Password: "123456",
-			DB:       conf.Info.RDB.Database,
-		})
-	_, err = SvRedis.Ping().Result()
+func InitRedisClient() error {
+	redisAddr := fmt.Sprintf("%s:%d", conf.Info.RDB.IP, conf.Info.RDB.Port)
+	var err error
+	SvRedis, err = redis.Dial("tcp", redisAddr,
+		redis.DialPassword("123456"),
+	)
 	if err != nil {
 		return err
 	}

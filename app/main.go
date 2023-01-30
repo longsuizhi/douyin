@@ -6,7 +6,6 @@ import (
 	"douyin/logger"
 	"douyin/router"
 	"fmt"
-	"os"
 
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
@@ -14,11 +13,11 @@ import (
 
 func main() {
 	config := "app/config/config.yaml"
-	if len(os.Args) > 2 {
+	/*if len(os.Args) > 2 {
 		fmt.Println("need config path, eg.: ./douyin conf/config.yaml")
 		config = os.Args[1]
 		return
-	}
+	}*/
 
 	// 1. 加载配置
 	if err := conf.Init(config); err != nil {
@@ -39,7 +38,7 @@ func main() {
 
 	// 4. 初始化 Redis 连接
 	if err := dao.InitRedisClient(); err != nil {
-		fmt.Printf("init logger failed, err = %v\n", err)
+		fmt.Printf("init redis failed, err = %v\n", err)
 		return
 	}
 	defer dao.RedisClose()

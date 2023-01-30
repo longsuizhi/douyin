@@ -22,7 +22,7 @@ type Mysql struct {
 }
 
 type Redis struct {
-	IP       string
+	IP       string `toml:"host"`
 	Port     int
 	Database int
 }
@@ -50,12 +50,13 @@ var Info Config
 
 func init() {
 	// toml加载配置文件xxx.toml
-	if _, err := toml.DecodeFile("/Users/inke226101m/workspace/src/github.com/longsuizhi/douyin/app/config/config.toml", &Info); err != nil {
+	if _, err := toml.DecodeFile("E:/goProject/douyin/app/config/config.toml", &Info); err != nil {
 		panic(err)
 	}
 	//去除左右的空格
 	Info.Server.IP = strings.Trim(Info.Server.IP, " ")
-	Info.RDB.IP = strings.Trim(Info.RDB.IP, " ")
+	a := strings.Trim(Info.RDB.IP, " ")
+	Info.RDB.IP = a
 	Info.DB.Host = strings.Trim(Info.DB.Host, " ")
 }
 

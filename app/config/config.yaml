@@ -11,15 +11,15 @@ log:
   max_backups: 7
   log_mode: "dev"
 mysql:
-  host: "127.0.0.1"
+  host: "43.143.231.157"
   port: 3306
-  user: "root"
+  user: "user"
   password: "123456"
   dbname: "douyin"
   max_open_connections: 200
   max_idle_connections: 50
 redis:
-  host: "127.0.0.1"
+  host: "43.143.231.157"
   port: 6379
   password: "123456"
   db: 0
